@@ -10,6 +10,7 @@ import { siteConfig, telLink } from "@/lib/data/siteConfig";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
+  { href: "/updates", label: "Updates" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

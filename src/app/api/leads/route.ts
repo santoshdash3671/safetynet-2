@@ -1,5 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendLeadEmail } from "@/lib/email";
+import { client, isSanityConfigured } from "@/sanity/client";
+
+async function saveLeadToSanity(lead: {
+  name: string;
+  phone: string;
+  locality: string;
+  service: string;
+  message: string;
+  source: string;
+}) {
+  const token = process.env.SANITY_API_TOKEN;
+  if (!isSanityConfigured || !token) {
+    console.log("[lead] Sanity not configured, skipping CRM save");
+    return null;
+  }
+
+  const writeClient = client.withConfig({ token, useCdn: false });
+  const doc = await writeClient.create({
+    _type: "lead",
+    name: lead.name,
+    phone: lead.phone,
+    locality: lead.locality || "Unknown locality",
+    service: lead.service || "General enquiry",
+    message: lead.message,
+    source: lead.source,
+    createdAt: new Date().toISOString(),
+    status: "New",
+  });
+  return doc._id;
+}
 
 export async function POST(req: NextRequest) {
   let body: {
@@ -33,11 +63,18 @@ export async function POST(req: NextRequest) {
     source: body.source || "unknown",
   };
 
+  let leadId: string | null = null;
+  try {
+    leadId = await saveLeadToSanity(lead);
+  } catch (err) {
+    console.error("[lead] failed to save lead to Sanity", err);
+  }
+
   try {
     await sendLeadEmail(lead);
   } catch (err) {
     console.error("[lead] failed to send notification email", err);
   }
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true, id: leadId });
 }

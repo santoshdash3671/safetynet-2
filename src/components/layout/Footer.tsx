@@ -113,6 +113,7 @@ export default function Footer() {
           <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Company</p>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/about" className="text-cream/70 hover:text-cream">About Us</Link></li>
+            <li><Link href="/updates" className="text-cream/70 hover:text-cream">Updates</Link></li>
             <li><Link href="/faq" className="text-cream/70 hover:text-cream">FAQs</Link></li>
             <li><Link href="/contact" className="text-cream/70 hover:text-cream">Contact</Link></li>
           </ul>
