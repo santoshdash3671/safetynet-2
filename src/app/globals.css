@@ -1,26 +1,167 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #1c1b17;
+  --color-cream: #faf6ee;
+  --color-cream-dim: #f2ead9;
+  --color-forest: #123d2f;
+  --color-forest-dark: #0a2a20;
+  --color-forest-light: #1f5c46;
+  --color-terracotta: #d9772e;
+  --color-terracotta-dark: #b85f1f;
+  --color-gold: #c9a227;
+  --color-line: #e4dcc8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink: var(--color-ink);
+  --color-cream: var(--color-cream);
+  --color-cream-dim: var(--color-cream-dim);
+  --color-forest: var(--color-forest);
+  --color-forest-dark: var(--color-forest-dark);
+  --color-forest-light: var(--color-forest-light);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-gold: var(--color-gold);
+  --color-line: var(--color-line);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-manrope);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+@layer utilities {
+  .container-wide {
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .container-narrow {
+    max-width: 56rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .section-pad {
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-pad {
+      padding-block: 6rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.4rem;
+    padding: 0.85rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-terracotta {
+    background: var(--color-terracotta);
+    color: white;
+    box-shadow: 0 4px 0 var(--color-terracotta-dark);
+  }
+
+  .btn-terracotta:hover {
+    background: var(--color-terracotta-dark);
+  }
+
+  .btn-forest {
+    background: var(--color-forest);
+    color: var(--color-cream);
+    box-shadow: 0 4px 0 var(--color-forest-dark);
+  }
+
+  .btn-forest:hover {
+    background: var(--color-forest-dark);
+  }
+
+  .btn-outline {
+    border: 1.5px solid var(--color-forest);
+    color: var(--color-forest);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn-whatsapp {
+    background: #1f8a4c;
+    color: white;
+    box-shadow: 0 4px 0 #146536;
+  }
+
+  .btn-whatsapp:hover {
+    background: #1a7440;
+  }
+
+  .card-notch {
+    border-radius: 0.35rem;
+    background: white;
+    border: 1px solid var(--color-line);
+    position: relative;
+  }
+
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .divider-zigzag {
+    height: 10px;
+    background-image: linear-gradient(135deg, var(--color-cream) 25%, transparent 25%),
+      linear-gradient(225deg, var(--color-cream) 25%, transparent 25%);
+    background-size: 16px 16px;
+    background-position: 0 0;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float-slow 4.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(31, 138, 76, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(31, 138, 76, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(31, 138, 76, 0); }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.2s infinite;
 }
