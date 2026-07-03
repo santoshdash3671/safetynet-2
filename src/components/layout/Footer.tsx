@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="container-wide grid grid-cols-1 gap-10 py-14 md:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="" width={36} height={36} className="h-9 w-9" />
+            <Image src="/logo.png" alt="" width={36} height={36} className="h-9 w-9" />
             <span className="font-display text-lg font-semibold text-cream">
               Satya Safety Net
             </span>
