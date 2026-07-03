@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { SERVICES } from "@/lib/data/services";
 import { ZONES, localitiesByZone } from "@/lib/data/localities";
 import { siteConfig, telLink } from "@/lib/data/siteConfig";
@@ -30,9 +31,7 @@ export default function Footer() {
       <div className="container-wide grid grid-cols-1 gap-10 py-14 md:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-terracotta text-white">
-              <ShieldCheck className="h-5 w-5" />
-            </span>
+            <Image src="/logo.svg" alt="" width={36} height={36} className="h-9 w-9" />
             <span className="font-display text-lg font-semibold text-cream">
               Satya Safety Net
             </span>
