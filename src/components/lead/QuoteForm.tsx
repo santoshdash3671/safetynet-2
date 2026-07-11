@@ -93,7 +93,7 @@ export default function QuoteForm({
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="rounded-md border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none focus:border-forest"
+          className="rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-all focus:border-forest-light focus:ring-2 focus:ring-forest-light/20"
         />
         <input
           type="tel"
@@ -101,14 +101,14 @@ export default function QuoteForm({
           value={phone}
           maxLength={10}
           onChange={(e) => setPhone(e.target.value.replace(/\D/g, ""))}
-          className="rounded-md border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none focus:border-forest"
+          className="rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-all focus:border-forest-light focus:ring-2 focus:ring-forest-light/20"
         />
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <select
           value={locality}
           onChange={(e) => setLocality(e.target.value)}
-          className="rounded-md border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none focus:border-forest"
+          className="rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-all focus:border-forest-light focus:ring-2 focus:ring-forest-light/20"
         >
           <option value="">Your locality</option>
           {LOCALITIES.map((l) => (
@@ -120,7 +120,7 @@ export default function QuoteForm({
         <select
           value={service}
           onChange={(e) => setService(e.target.value)}
-          className="rounded-md border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none focus:border-forest"
+          className="rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-all focus:border-forest-light focus:ring-2 focus:ring-forest-light/20"
         >
           <option value="">What do you need?</option>
           {SERVICES.map((s) => (

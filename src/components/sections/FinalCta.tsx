@@ -3,12 +3,21 @@ import { siteConfig, telLink, whatsappLink } from "@/lib/data/siteConfig";
 
 export default function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-terracotta">
+    <section className="relative overflow-hidden bg-gradient-to-br from-terracotta via-[#fb923c] to-terracotta-dark">
+      {/* Modern gradient overlay */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-10"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 60% at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,0,0,0.1) 0%, transparent 60%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(45deg, transparent, transparent 14px, #fff 14px, #fff 15px)",
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)",
+          backgroundSize: "28px 28px",
         }}
       />
       <div className="container-wide relative flex flex-col items-center gap-5 py-14 text-center text-white md:py-16">
@@ -19,7 +28,7 @@ export default function FinalCta() {
           Available across all {siteConfig.stats.localities} localities in Bangalore, seven days a week.
         </p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <a href={telLink()} className="btn bg-white text-terracotta-dark">
+          <a href={telLink()} className="btn rounded-lg bg-white text-terracotta-dark shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20">
             <Phone className="h-4 w-4" /> Call {siteConfig.phoneDisplay}
           </a>
           <a

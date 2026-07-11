@@ -39,9 +39,6 @@ export default function ServicesShowcase() {
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink/60 to-transparent" />
-                <span className="tag-chip absolute left-3 top-3 bg-cream/95 text-forest">
-                  {s.priceRange.split(",")[0]}
-                </span>
               </div>
               <div className="flex items-center justify-between p-5">
                 <div>

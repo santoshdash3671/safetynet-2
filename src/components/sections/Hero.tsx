@@ -1,85 +1,70 @@
 import Image from "next/image";
-import { Star, MapPin, ShieldCheck } from "lucide-react";
+import { Star, ShieldCheck, Clock, Award } from "lucide-react";
 import QuoteForm from "@/components/lead/QuoteForm";
 import { siteConfig } from "@/lib/data/siteConfig";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.12]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(250,246,238,0.6) 18px, rgba(250,246,238,0.6) 19px), repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(250,246,238,0.6) 18px, rgba(250,246,238,0.6) 19px)",
-        }}
-      />
-      <div className="container-wide relative grid grid-cols-1 items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="text-cream">
-          <div className="tag-chip bg-cream/10 text-gold">
-            <Star className="h-3.5 w-3.5 fill-gold" /> Bangalore's own safety net installers
-          </div>
-          <h1 className="font-display mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-            Safety nets that let you
-            <span className="text-terracotta"> breathe easy</span>, in every corner of Bangalore
-          </h1>
-          <p className="mt-4 max-w-xl text-base text-cream/75">
-            Balcony nets, invisible grills, bird netting and more, installed by a local team that
-            knows the city's buildings inside out. Free site visit, honest pricing, work finished
-            the same week in most localities.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-terracotta" />
-              {siteConfig.stats.installs} installations
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-terracotta" />
-              {siteConfig.stats.localities} localities covered
-            </div>
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4 fill-gold text-gold" />
-              {siteConfig.stats.rating} rated by {siteConfig.stats.reviewCount} customers
-            </div>
-          </div>
-        </div>
-
-        <div className="relative pt-8 sm:pt-10">
-          <div className="absolute -top-2 right-6 z-0 hidden w-40 rotate-[6deg] overflow-hidden rounded-md border-4 border-cream shadow-xl sm:block">
+    <section className="bg-cream pb-12 pt-8 sm:pb-16 sm:pt-12">
+      <div className="container-wide">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:grid-rows-[auto_auto_auto]">
+          
+          {/* 1. Main Bento Card (Image + Title) */}
+          <div className="card-notch group relative flex flex-col justify-end overflow-hidden lg:col-span-8 lg:row-span-3 lg:min-h-[560px]">
             <Image
-              src="/images/balcony-safety-nets.png"
-              alt="Balcony safety net installed in a Bangalore apartment"
-              width={200}
-              height={200}
-              className="h-32 w-full object-cover"
+              src="/images/hero-safety-nets.png"
+              alt="Safety nets installed in a Bangalore apartment"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 66vw"
+              className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
+            {/* Gradient to make text readable */}
+            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/95 via-forest-dark/40 to-transparent" />
+            
+            <div className="relative z-10 p-6 sm:p-10">
+              <div className="animate-fade-up tag-chip mb-4 bg-white/20 text-white backdrop-blur-md">
+                <Star className="h-3.5 w-3.5 fill-gold text-gold" /> Premium Safety Nets in Bangalore
+              </div>
+              <h1 className="font-display animate-fade-up-delay-1 max-w-2xl text-3xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+                Safety nets that let you
+                <span className="text-gold"> breathe easy</span>
+              </h1>
+              <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-base text-white/90 sm:text-lg">
+                Balcony nets, invisible grills, and bird netting installed by a trusted local team. 
+                Free site visits and clear quotes across every corner of the city.
+              </p>
+            </div>
           </div>
-          <div className="absolute -bottom-4 -left-4 z-20 hidden rotate-[-3deg] rounded-md bg-cream px-4 py-2 text-xs font-semibold text-forest shadow-lg sm:block">
-            5 year warranty on every installation
-          </div>
-          <div className="card-notch relative z-10 bg-cream p-6 shadow-2xl">
-            <QuoteForm source="homepage_hero" />
-          </div>
-        </div>
-      </div>
 
-      <div className="relative bg-cream-dim">
-        <div className="container-wide grid grid-cols-2 divide-x divide-line py-4 text-center sm:grid-cols-4">
-          <Stat value={siteConfig.stats.experienceYears} label="Years in Bangalore" />
-          <Stat value={siteConfig.stats.zones} label="City zones covered" />
-          <Stat value={siteConfig.stats.warrantyYears} label="Year warranty" />
-          <Stat value={siteConfig.stats.rating} label="Average rating" />
+          {/* 2. Action Bento Card (Quote Form) */}
+          <div className="card-notch flex flex-col justify-center bg-white p-6 shadow-sm lg:col-span-4 lg:row-span-2">
+            <QuoteForm source="homepage_hero" heading="Get a free site visit" />
+          </div>
+
+          {/* 3. Trust Mini-Cards */}
+          <div className="card-notch flex items-center gap-4 bg-cream-dim p-5 transition-colors hover:bg-white lg:col-span-2 lg:row-span-1">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-forest to-forest-light text-cream">
+              <Award className="h-6 w-6" />
+            </div>
+            <div>
+              <p className="font-display text-xl font-bold text-ink">{siteConfig.stats.experienceYears}</p>
+              <p className="text-xs font-medium uppercase tracking-wide text-ink/60">Years Local</p>
+            </div>
+          </div>
+
+          <div className="card-notch flex items-center gap-4 bg-cream-dim p-5 transition-colors hover:bg-white lg:col-span-2 lg:row-span-1">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-forest to-forest-light text-cream">
+              <ShieldCheck className="h-6 w-6" />
+            </div>
+            <div>
+              <p className="font-display text-xl font-bold text-ink">{siteConfig.stats.warrantyYears}</p>
+              <p className="text-xs font-medium uppercase tracking-wide text-ink/60">Warranty</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="px-2">
-      <p className="font-display text-xl font-semibold text-forest sm:text-2xl">{value}</p>
-      <p className="text-xs text-ink/60">{label}</p>
-    </div>
   );
 }

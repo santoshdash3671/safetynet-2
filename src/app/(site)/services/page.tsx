@@ -39,9 +39,6 @@ export default function ServicesPage() {
                   sizes="(min-width: 1024px) 380px, 100vw"
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
-                <span className="tag-chip absolute left-3 top-3 bg-cream/95 text-forest">
-                  {s.priceRange.split(",")[0]}
-                </span>
               </div>
               <div className="p-5">
                 <h2 className="font-display text-lg font-semibold text-ink">{s.name}</h2>

@@ -16,7 +16,7 @@ const REASONS = [
   "Our own trained crew does the installation, not rotating subcontractors.",
   "Materials chosen for the specific job, not a one size fits all mesh.",
   "Warranty backed by an actual follow up visit if something comes loose.",
-  "Transparent pricing shared upfront, nothing hidden for later.",
+  "Clear quote shared upfront, nothing hidden for later.",
   "Work scheduled around your convenience, including weekends.",
 ];
 

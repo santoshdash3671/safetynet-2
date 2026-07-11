@@ -28,100 +28,110 @@ export default function Footer() {
 
   return (
     <footer className="bg-forest-dark text-cream/85">
-      <div className="container-wide grid grid-cols-1 gap-10 py-14 md:grid-cols-4">
-        <div>
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" width={36} height={36} className="h-9 w-9" />
-            <span className="font-display text-lg font-semibold text-cream">
-              Satya Safety Net
-            </span>
-          </Link>
-          <p className="mt-4 text-sm leading-relaxed text-cream/65">
-            {siteConfig.description}
-          </p>
-          <div className="mt-5 space-y-2.5 text-sm">
-            <a href={telLink()} className="flex items-center gap-2 hover:text-gold">
-              <Phone className="h-4 w-4 text-terracotta" /> {siteConfig.phoneDisplay}
-            </a>
-            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 hover:text-gold">
-              <Mail className="h-4 w-4 text-terracotta" /> {siteConfig.email}
-            </a>
-            <p className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
-              {siteConfig.address.line1}, {siteConfig.address.locality}, {siteConfig.address.city} - {siteConfig.address.pincode}
+      {/* Subtle gradient accent */}
+      <div className="relative">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 30% at 20% 0%, rgba(37, 99, 235, 0.4) 0%, transparent 70%)",
+          }}
+        />
+        <div className="container-wide relative grid grid-cols-1 gap-10 py-14 md:grid-cols-4">
+          <div>
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/logo.png" alt="" width={36} height={36} className="h-9 w-9" />
+              <span className="font-display text-lg font-semibold text-cream">
+                Satya Safety Net
+              </span>
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-cream/65">
+              {siteConfig.description}
             </p>
+            <div className="mt-5 space-y-2.5 text-sm">
+              <a href={telLink()} className="flex items-center gap-2 transition-colors hover:text-gold">
+                <Phone className="h-4 w-4 text-terracotta" /> {siteConfig.phoneDisplay}
+              </a>
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-gold">
+                <Mail className="h-4 w-4 text-terracotta" /> {siteConfig.email}
+              </a>
+              <p className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
+                {siteConfig.address.line1}, {siteConfig.address.locality}, {siteConfig.address.city} - {siteConfig.address.pincode}
+              </p>
+            </div>
+            <div className="mt-5 flex gap-3">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-cream/10 transition-all hover:bg-terracotta hover:shadow-lg"
+                aria-label="Instagram"
+              >
+                <InstagramGlyph />
+              </a>
+              <a
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-cream/10 transition-all hover:bg-terracotta hover:shadow-lg"
+                aria-label="Facebook"
+              >
+                <FacebookGlyph />
+              </a>
+            </div>
           </div>
-          <div className="mt-5 flex gap-3">
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-cream/10 hover:bg-terracotta"
-              aria-label="Instagram"
-            >
-              <InstagramGlyph />
-            </a>
-            <a
-              href={siteConfig.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-cream/10 hover:bg-terracotta"
-              aria-label="Facebook"
-            >
-              <FacebookGlyph />
-            </a>
-          </div>
-        </div>
 
-        <div>
-          <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Services</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            {SERVICES.slice(0, 8).map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="text-cream/70 hover:text-cream">
-                  {s.name}
+          <div>
+            <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Services</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {SERVICES.slice(0, 8).map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`} className="text-cream/70 transition-colors hover:text-cream">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/services" className="font-medium text-terracotta transition-colors hover:text-gold">
+                  View all services
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link href="/services" className="font-medium text-terracotta hover:text-gold">
-                View all services
-              </Link>
-            </li>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <div>
-          <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Popular Areas</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            {ZONES.flatMap((z) => localitiesByZone(z.key).slice(0, 2)).map((l) => (
-              <li key={l.slug}>
-                <Link href={`/areas/${l.slug}`} className="text-cream/70 hover:text-cream">
-                  {l.name}
+          <div>
+            <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Popular Areas</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {ZONES.flatMap((z) => localitiesByZone(z.key).slice(0, 2)).map((l) => (
+                <li key={l.slug}>
+                  <Link href={`/areas/${l.slug}`} className="text-cream/70 transition-colors hover:text-cream">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/areas" className="font-medium text-terracotta transition-colors hover:text-gold">
+                  View all {siteConfig.stats.localities} localities
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link href="/areas" className="font-medium text-terracotta hover:text-gold">
-                View all {siteConfig.stats.localities} localities
-              </Link>
-            </li>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <div>
-          <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Company</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><Link href="/about" className="text-cream/70 hover:text-cream">About Us</Link></li>
-            <li><Link href="/updates" className="text-cream/70 hover:text-cream">Updates</Link></li>
-            <li><Link href="/faq" className="text-cream/70 hover:text-cream">FAQs</Link></li>
-            <li><Link href="/contact" className="text-cream/70 hover:text-cream">Contact</Link></li>
-          </ul>
-          <div className="mt-6 rounded-md border border-cream/15 p-4">
-            <p className="text-sm font-semibold text-cream">Need a quick quote?</p>
-            <a href={telLink()} className="btn btn-terracotta mt-3 w-full text-center">
-              Call {siteConfig.phoneDisplay}
-            </a>
+          <div>
+            <p className="font-display text-sm font-semibold uppercase tracking-wide text-gold">Company</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link href="/about" className="text-cream/70 transition-colors hover:text-cream">About Us</Link></li>
+              <li><Link href="/updates" className="text-cream/70 transition-colors hover:text-cream">Updates</Link></li>
+              <li><Link href="/faq" className="text-cream/70 transition-colors hover:text-cream">FAQs</Link></li>
+              <li><Link href="/contact" className="text-cream/70 transition-colors hover:text-cream">Contact</Link></li>
+            </ul>
+            <div className="mt-6 rounded-xl border border-cream/15 bg-cream/5 p-4 backdrop-blur-sm">
+              <p className="text-sm font-semibold text-cream">Need a quick quote?</p>
+              <a href={telLink()} className="btn btn-terracotta mt-3 w-full text-center">
+                Call {siteConfig.phoneDisplay}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -134,7 +144,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-cream/50">
             {ZONES.flatMap((z) => localitiesByZone(z.key)).map((l, i, arr) => (
               <span key={l.slug}>
-                <Link href={`/areas/${l.slug}`} className="hover:text-cream">
+                <Link href={`/areas/${l.slug}`} className="transition-colors hover:text-cream">
                   {l.name}
                 </Link>
                 {i < arr.length - 1 && <span className="ml-4">&middot;</span>}

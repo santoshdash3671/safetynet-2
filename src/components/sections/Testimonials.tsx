@@ -23,7 +23,7 @@ const REVIEWS = [
   {
     name: "Rahul D.",
     area: "Hebbal",
-    text: "Quoted a fair price at the visit and stuck to it. No last minute add ons, which was refreshing after two other quotes that kept changing.",
+    text: "Quoted a fair amount at the visit and stuck to it. No last minute add ons, which was refreshing after two other quotes that kept changing.",
     service: "Children Safety Nets",
   },
   {
@@ -59,8 +59,8 @@ export default function Testimonials() {
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {REVIEWS.map((r) => (
-            <div key={r.name} className="card-notch p-5">
-              <Quote className="h-5 w-5 text-terracotta/50" />
+            <div key={r.name} className="card-notch group p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <Quote className="h-5 w-5 text-terracotta/40" />
               <p className="mt-3 text-sm leading-relaxed text-ink/75">{r.text}</p>
               <div className="mt-4 flex items-center justify-between border-t border-line pt-3">
                 <div>

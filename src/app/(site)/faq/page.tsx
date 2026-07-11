@@ -6,7 +6,7 @@ import { SERVICES } from "@/lib/data/services";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
-  description: "Answers to common questions about safety net installation, pricing, warranty and coverage across Bangalore.",
+  description: "Answers to common questions about safety net installation, warranty and coverage across Bangalore.",
   alternates: { canonical: "/faq" },
 };
 

@@ -18,7 +18,7 @@ const POINTS = [
   },
   {
     icon: Wallet,
-    title: "One price, stated upfront",
+    title: "One quote, stated upfront",
     desc: "The quote you get at the site visit is what you pay. No last minute additions.",
   },
   {
@@ -51,8 +51,8 @@ export default function WhyUs() {
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {POINTS.map((p) => (
-            <div key={p.title} className="flex gap-3.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-forest text-cream">
+            <div key={p.title} className="group flex gap-3.5 rounded-xl p-3 transition-all duration-200 hover:bg-cream-dim hover:shadow-md">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-forest to-forest-light text-cream shadow-sm">
                 <p.icon className="h-5 w-5" />
               </span>
               <div>

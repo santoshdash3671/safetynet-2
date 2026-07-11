@@ -44,16 +44,16 @@ export default function LeadPopup() {
 
   return (
     <div className="fixed bottom-20 right-4 z-40 w-[92vw] max-w-sm animate-float lg:bottom-6 lg:right-6">
-      <div className="card-notch relative overflow-hidden p-5 shadow-2xl">
+      <div className="relative overflow-hidden rounded-xl border border-line bg-white/95 p-5 shadow-2xl backdrop-blur-md">
         <button
           onClick={() => setVisible(false)}
-          className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-cream-dim text-ink/60 hover:text-ink"
+          className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-cream-dim text-ink/60 transition-colors hover:text-ink"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
         </button>
         <div className="mb-3 flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forest text-cream">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-forest to-forest-light text-cream">
             <ShieldCheck className="h-4 w-4" />
           </span>
           <p className="text-sm font-semibold text-ink">Still deciding?</p>

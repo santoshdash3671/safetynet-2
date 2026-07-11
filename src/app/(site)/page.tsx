@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
+import Marquee from "@/components/ui/Marquee";
 import ServicesShowcase from "@/components/sections/ServicesShowcase";
 import AreasCovered from "@/components/sections/AreasCovered";
 import ProcessSteps from "@/components/sections/ProcessSteps";
@@ -22,6 +23,7 @@ export default function HomePage() {
     <>
       <FaqSchema items={GENERAL_FAQS.slice(0, 6)} />
       <Hero />
+      <Marquee />
       <ServicesShowcase />
       <AreasCovered />
       <ProcessSteps />

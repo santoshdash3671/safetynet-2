@@ -117,7 +117,7 @@ export default async function LocalityPage({
                 </span>
                 <div>
                   <p className="font-medium text-ink">{s.name}</p>
-                  <p className="mt-0.5 text-xs text-ink/55">{s.priceRange.split(",")[0]}</p>
+                  <p className="mt-0.5 text-xs text-ink/55">{s.tagline}</p>
                 </div>
               </Link>
             ))}

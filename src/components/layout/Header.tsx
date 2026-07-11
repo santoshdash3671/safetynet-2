@@ -29,18 +29,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40">
-      <div className="hidden bg-forest text-cream/90 md:block">
+      <div className="hidden bg-gradient-to-r from-forest-dark to-forest text-cream/90 md:block">
         <div className="container-wide flex items-center justify-between py-1.5 text-xs">
           <span>Free site visit across all {siteConfig.stats.localities} Bangalore localities, seven days a week</span>
-          <a href={telLink()} className="flex items-center gap-1.5 font-medium hover:text-gold">
+          <a href={telLink()} className="flex items-center gap-1.5 font-medium transition-colors hover:text-gold">
             <Phone className="h-3 w-3" /> {siteConfig.phoneDisplay}
           </a>
         </div>
       </div>
 
       <div
-        className={`bg-cream/95 backdrop-blur transition-shadow ${
-          scrolled ? "shadow-[0_2px_0_0_var(--color-line)]" : "border-b border-line"
+        className={`bg-cream/95 backdrop-blur-md transition-shadow ${
+          scrolled ? "shadow-md" : "border-b border-line"
         }`}
       >
         <div className="container-wide flex items-center justify-between py-3.5">
@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
-            <Link href="/" className="text-sm font-medium text-ink/80 hover:text-forest">
+            <Link href="/" className="text-sm font-medium text-ink/80 transition-colors hover:text-forest">
               Home
             </Link>
 
@@ -64,24 +64,24 @@ export default function Header() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-ink/80 hover:text-forest">
+              <button className="flex items-center gap-1 text-sm font-medium text-ink/80 transition-colors hover:text-forest">
                 Services <ChevronDown className="h-3.5 w-3.5" />
               </button>
               {servicesOpen && (
                 <div className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3">
-                  <div className="card-notch grid grid-cols-2 gap-1 p-3 shadow-xl">
+                  <div className="grid grid-cols-2 gap-1 rounded-xl border border-line bg-white/95 p-3 shadow-xl backdrop-blur-md">
                     {SERVICES.map((s) => (
                       <Link
                         key={s.slug}
                         href={`/services/${s.slug}`}
-                        className="rounded px-3 py-2 text-sm text-ink/80 hover:bg-cream-dim hover:text-forest"
+                        className="rounded-lg px-3 py-2 text-sm text-ink/80 transition-colors hover:bg-cream-dim hover:text-forest"
                       >
                         {s.name}
                       </Link>
                     ))}
                     <Link
                       href="/services"
-                      className="col-span-2 mt-1 rounded bg-cream-dim px-3 py-2 text-center text-sm font-semibold text-forest"
+                      className="col-span-2 mt-1 rounded-lg bg-cream-dim px-3 py-2 text-center text-sm font-semibold text-forest transition-colors hover:bg-forest hover:text-cream"
                     >
                       View all services
                     </Link>
@@ -95,12 +95,12 @@ export default function Header() {
               onMouseEnter={() => setAreasOpen(true)}
               onMouseLeave={() => setAreasOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-ink/80 hover:text-forest">
+              <button className="flex items-center gap-1 text-sm font-medium text-ink/80 transition-colors hover:text-forest">
                 Areas We Cover <ChevronDown className="h-3.5 w-3.5" />
               </button>
               {areasOpen && (
                 <div className="absolute left-1/2 top-full w-[700px] -translate-x-1/2 pt-3">
-                  <div className="card-notch grid grid-cols-5 gap-4 p-5 shadow-xl">
+                  <div className="grid grid-cols-5 gap-4 rounded-xl border border-line bg-white/95 p-5 shadow-xl backdrop-blur-md">
                     {ZONES.map((zone) => (
                       <div key={zone.key}>
                         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-terracotta">
@@ -113,7 +113,7 @@ export default function Header() {
                               <li key={l.slug}>
                                 <Link
                                   href={`/areas/${l.slug}`}
-                                  className="text-sm text-ink/70 hover:text-forest"
+                                  className="text-sm text-ink/70 transition-colors hover:text-forest"
                                 >
                                   {l.name}
                                 </Link>
@@ -124,7 +124,7 @@ export default function Header() {
                     ))}
                     <Link
                       href="/areas"
-                      className="col-span-5 mt-2 rounded bg-cream-dim px-3 py-2 text-center text-sm font-semibold text-forest"
+                      className="col-span-5 mt-2 rounded-lg bg-cream-dim px-3 py-2 text-center text-sm font-semibold text-forest transition-colors hover:bg-forest hover:text-cream"
                     >
                       View all {siteConfig.stats.localities} localities
                     </Link>
@@ -134,7 +134,7 @@ export default function Header() {
             </div>
 
             {NAV_LINKS.map((l) => (
-              <Link key={l.href} href={l.href} className="text-sm font-medium text-ink/80 hover:text-forest">
+              <Link key={l.href} href={l.href} className="text-sm font-medium text-ink/80 transition-colors hover:text-forest">
                 {l.label}
               </Link>
             ))}
@@ -153,7 +153,7 @@ export default function Header() {
           </div>
 
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-line lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line lg:hidden"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
@@ -164,7 +164,7 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-ink/40" onClick={() => setMobileOpen(false)} />
+          <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <div className="absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col overflow-y-auto bg-cream p-5">
             <div className="flex items-center justify-between">
               <span className="font-display text-lg font-semibold">Menu</span>
@@ -174,7 +174,7 @@ export default function Header() {
             </div>
 
             <nav className="mt-6 flex flex-col gap-1">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="rounded px-2 py-3 text-base font-medium">
+              <Link href="/" onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-3 text-base font-medium transition-colors hover:bg-cream-dim">
                 Home
               </Link>
               <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-wide text-terracotta">Services</p>
@@ -183,7 +183,7 @@ export default function Header() {
                   key={s.slug}
                   href={`/services/${s.slug}`}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded px-2 py-2 text-sm text-ink/80"
+                  className="rounded-lg px-2 py-2 text-sm text-ink/80 transition-colors hover:bg-cream-dim"
                 >
                   {s.name}
                 </Link>
@@ -199,7 +199,7 @@ export default function Header() {
 
               <div className="my-3 h-px bg-line" />
               {NAV_LINKS.map((l) => (
-                <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded px-2 py-3 text-base font-medium">
+                <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-3 text-base font-medium transition-colors hover:bg-cream-dim">
                   {l.label}
                 </Link>
               ))}

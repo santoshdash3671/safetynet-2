@@ -11,7 +11,6 @@ export default function LocalBusinessSchema() {
     image: `${siteConfig.siteUrl}/logo.png`,
     telephone: siteConfig.phoneRaw,
     email: siteConfig.email,
-    priceRange: "Rs 8 - Rs 220",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.line1,

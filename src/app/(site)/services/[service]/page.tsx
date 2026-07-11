@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   return {
     title: `${service.name} in Bangalore`,
-    description: `${service.summary} ${service.priceRange}.`,
+    description: `${service.summary} Free site visit and same week installation.`,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -64,7 +64,6 @@ export default async function ServiceDetailPage({
             </span>
             <h1 className="font-display mt-4 text-3xl font-semibold sm:text-4xl">{service.name} in Bangalore</h1>
             <p className="mt-3 max-w-xl text-sm text-cream/75">{service.summary}</p>
-            <p className="mt-3 text-sm font-medium text-gold">{service.priceRange}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={telLink()} className="btn btn-terracotta">
                 <Phone className="h-4 w-4" /> Call {siteConfig.phoneDisplay}

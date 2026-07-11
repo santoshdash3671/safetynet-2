@@ -35,7 +35,7 @@ export async function generateMetadata({
   const { locality, service } = data;
 
   const title = `${service.name} in ${locality.name}, Bangalore`;
-  const description = `${service.name} installation in ${locality.name} near ${locality.landmark}. Free site visit, ${service.priceRange}. Book a slot today.`;
+  const description = `${service.name} installation in ${locality.name} near ${locality.landmark}. Free site visit, same week installation. Book a slot today.`;
 
   return {
     title,
@@ -60,8 +60,8 @@ export default async function LocalityServicePage({
 
   const localFaqs = [
     {
-      q: `How much does ${service.shortName.toLowerCase()} cost in ${locality.name}?`,
-      a: `Pricing usually falls in the range of ${service.priceRange}, though the exact quote depends on the size and shape of the area near ${locality.landmark}. Our team gives you an exact figure after the free site visit.`,
+      q: `How do I get a quote for ${service.shortName.toLowerCase()} in ${locality.name}?`,
+      a: `The exact quote depends on the size and shape of the area near ${locality.landmark}. Our team gives you an exact figure after the free site visit, with no obligation to proceed.`,
     },
     {
       q: `How fast can someone visit my home in ${locality.name}?`,
@@ -112,7 +112,6 @@ export default async function LocalityServicePage({
               </a>
             </div>
 
-            <p className="mt-5 text-sm font-medium text-gold">{service.priceRange}</p>
           </div>
 
           <div className="card-notch bg-cream p-6 shadow-2xl">

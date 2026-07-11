@@ -12,7 +12,7 @@ const STEPS = [
   {
     n: "03",
     title: "Fixed quote, no surprises",
-    desc: "You get a clear price on the spot. No renegotiation after the work starts.",
+    desc: "You get a clear quote on the spot. No renegotiation after the work starts.",
   },
   {
     n: "04",
@@ -31,10 +31,10 @@ export default function ProcessSteps() {
         </h2>
 
         <div className="relative mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="absolute left-0 right-0 top-6 hidden h-px bg-line lg:block" />
+          <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-gradient-to-r from-forest via-forest-light to-terracotta lg:block" />
           {STEPS.map((step) => (
             <div key={step.n} className="relative">
-              <span className="font-display relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-forest bg-cream-dim text-sm font-semibold text-forest">
+              <span className="font-display relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-forest to-forest-light text-sm font-semibold text-cream shadow-lg shadow-forest/20">
                 {step.n}
               </span>
               <h3 className="font-display mt-4 text-lg font-semibold text-ink">{step.title}</h3>

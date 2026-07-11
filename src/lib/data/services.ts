@@ -9,7 +9,7 @@ export interface Service {
   shortName: string;
   tagline: string;
   summary: string;
-  priceRange: string;
+
   icon: string;
   image: string;
   features: string[];
@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
     tagline: "Stop worrying every time the kids or pets step onto the balcony",
     summary:
       "Balcony safety nets are a UV stabilised HDPE mesh fixed with a stainless steel frame along the balcony opening. They are strong enough to hold body weight, virtually invisible from a normal viewing distance, and do not block the breeze or the view.",
-    priceRange: "Rs 18 to Rs 35 per sq ft, depending on balcony shape",
+
     icon: "Building2",
     image: "/images/balcony-safety-nets.png",
     features: [
@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
     tagline: "The safety of a grill, the view of an open window",
     summary:
       "Invisible grills use thin, high tensile stainless steel wires strung vertically or horizontally, anchored into the wall on both sides. They hold significant load while staying nearly invisible from inside the room, unlike traditional MS grills that block light and view.",
-    priceRange: "Rs 140 to Rs 220 per running foot",
+
     icon: "ShieldCheck",
     image: "/images/invisible-grills.png",
     features: [
@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
     tagline: "Keep pigeons and crows off your balcony, sit-out and AC units",
     summary:
       "Bird netting seals off open balconies, sit outs, and AC unit ledges with a fine mesh that stops pigeons, crows, and mynas from entering and nesting. It is a humane way to solve the mess and noise problem without harming the birds.",
-    priceRange: "Rs 15 to Rs 28 per sq ft",
+
     icon: "Bird",
     image: "/images/bird-netting.png",
     features: [
@@ -131,7 +131,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "How is this different from balcony safety nets?",
-        a: "Balcony safety nets use a stronger mesh built to hold body weight for fall prevention. Bird netting uses a lighter mesh built specifically to block birds, and is priced accordingly.",
+        a: "Balcony safety nets use a stronger mesh built to hold body weight for fall prevention. Bird netting uses a lighter mesh built specifically to block birds.",
       },
     ],
   },
@@ -142,7 +142,7 @@ export const SERVICES: Service[] = [
     tagline: "One less thing to worry about when little ones are playing near the window",
     summary:
       "Purpose built nets for windows, balconies, staircases, and open corridors in homes with young children. The mesh, knot strength, and fixing method are chosen specifically to handle the way kids climb, pull, and lean on barriers.",
-    priceRange: "Rs 20 to Rs 32 per sq ft",
+
     icon: "Baby",
     image: "/images/children-safety-nets.png",
     features: [
@@ -181,7 +181,7 @@ export const SERVICES: Service[] = [
     tagline: "Stop pigeons from turning your balcony into their nest",
     summary:
       "A dedicated pigeon control net that seals balconies, window ledges, and AC shafts where pigeons commonly roost. Bangalore's older apartment blocks in particular tend to attract heavy pigeon activity, and a full seal is the only permanent fix.",
-    priceRange: "Rs 15 to Rs 25 per sq ft",
+
     icon: "Feather",
     image: "/images/pigeon-safety-nets.png",
     features: [
@@ -216,7 +216,7 @@ export const SERVICES: Service[] = [
     tagline: "Debris control and fall protection for builders and contractors",
     summary:
       "Heavy duty safety nets used during construction and renovation work to catch falling debris and protect workers from height related falls. Commonly used by builders, contractors, and housing societies doing facade or repair work.",
-    priceRange: "Rs 8 to Rs 15 per sq ft, project basis",
+
     icon: "HardHat",
     image: "/images/construction-safety-nets.png",
     features: [
@@ -224,7 +224,7 @@ export const SERVICES: Service[] = [
       "Debris catch nets for scaffolding and building perimeters",
       "Fall arrest netting for workers at height",
       "Flame retardant options available on request",
-      "Bulk pricing for builders and contractors",
+      "Bulk options available for builders and contractors",
       "Rental and purchase options both available",
     ],
     process: [
@@ -236,7 +236,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: "Do you supply nets on rent for short term projects?",
-        a: "Yes, for shorter renovation or repair jobs we offer rental pricing in addition to outright purchase.",
+        a: "Yes, for shorter renovation or repair jobs we offer rental options in addition to outright purchase.",
       },
       {
         q: "Can this be used for RCC and facade work on high rises?",
@@ -251,7 +251,7 @@ export const SERVICES: Service[] = [
     tagline: "Cricket practice nets and boundary nets for terraces and open plots",
     summary:
       "Custom sized practice cages and boundary nets for cricket, badminton, and multi purpose courts on terraces, open plots, or society common areas. Built to handle repeated ball impact without sagging.",
-    priceRange: "Rs 20 to Rs 40 per sq ft, size dependent",
+
     icon: "CircleDot",
     image: "/images/sports-nets.png",
     features: [
@@ -286,7 +286,7 @@ export const SERVICES: Service[] = [
     tagline: "Let kids enjoy the pool area without the constant worry",
     summary:
       "A flush mounted safety net installed just below the pool surface, so the pool remains fully usable while removing the drowning risk for children and pets. Common in villas, farmhouses, and gated communities with private pools.",
-    priceRange: "Rs 40 to Rs 70 per sq ft",
+
     icon: "Waves",
     image: "/images/swimming-pool-safety-nets.png",
     features: [
@@ -321,7 +321,7 @@ export const SERVICES: Service[] = [
     tagline: "Protect parked cars from falling debris, coconuts, and stray balls",
     summary:
       "Overhead netting installed above open or covered parking areas to catch falling debris, coconuts from nearby trees, or stray sports balls before they damage a parked car.",
-    priceRange: "Rs 12 to Rs 22 per sq ft",
+
     icon: "Car",
     image: "/images/car-parking-safety-nets.png",
     features: [
@@ -356,7 +356,7 @@ export const SERVICES: Service[] = [
     tagline: "Close the gap under open staircases and duct railings",
     summary:
       "Duplex homes and villas with open staircases often have a gap under the railing that is risky for children and pets. This net closes that gap completely while keeping the staircase design visually unchanged.",
-    priceRange: "Rs 20 to Rs 30 per sq ft",
+
     icon: "Milestone",
     image: "/images/staircase-safety-nets.png",
     features: [
@@ -391,7 +391,7 @@ export const SERVICES: Service[] = [
     tagline: "Keep monkeys off balconies, windows, and terraces for good",
     summary:
       "Areas near Bangalore's parks and green belts sometimes see regular monkey visits through open balconies and windows. This is a heavy duty version of our balcony netting built specifically to withstand a monkey's strength and persistence.",
-    priceRange: "Rs 22 to Rs 35 per sq ft",
+
     icon: "TreePine",
     image: "/images/monkey-safety-nets.png",
     features: [
@@ -426,7 +426,7 @@ export const SERVICES: Service[] = [
     tagline: "Stop falling coconuts and dry fronds from becoming a hazard",
     summary:
       "For homes and plots with coconut or other tall fruit trees close to walkways, parking, or seating areas, a suspended net around the tree canopy catches falling coconuts and dry fronds before they hit the ground.",
-    priceRange: "Rs 10 to Rs 18 per sq ft",
+
     icon: "Trees",
     image: "/images/coconut-tree-safety-nets.png",
     features: [
