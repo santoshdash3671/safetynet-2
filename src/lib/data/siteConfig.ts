@@ -7,9 +7,9 @@ export const siteConfig = {
   description:
     "Safety nets, invisible grills and bird netting installed across every zone of Bangalore. Free site visit, same week installation, five year warranty.",
 
-  phoneDisplay: "+91 90359 40492",
-  phoneRaw: "+919035940492",
-  whatsappRaw: "919035940492",
+  phoneDisplay: "+91 90354 94946",
+  phoneRaw: "+919035494946",
+  whatsappRaw: "919035494946",
   email: "support@satyasafetynet.in",
 
   address: {
