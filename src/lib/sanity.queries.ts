@@ -13,11 +13,13 @@ export interface UpdatePost {
 
 export async function getAllPosts(): Promise<UpdatePost[]> {
   if (!isSanityConfigured) return [];
-  return client.fetch(`
-    *[_type == "update"] | order(publishedAt desc) {
+  return client.fetch(
+    `*[_type == "update"] | order(publishedAt desc) {
       _id, title, slug, publishedAt, category, excerpt, mainImage
-    }
-  `);
+    }`,
+    {},
+    { next: { revalidate: 0 }, cache: 'no-store' }
+  );
 }
 
 export async function getPostBySlug(slug: string): Promise<UpdatePost | null> {
@@ -26,6 +28,7 @@ export async function getPostBySlug(slug: string): Promise<UpdatePost | null> {
     `*[_type == "update" && slug.current == $slug][0] {
       _id, title, slug, publishedAt, category, excerpt, body, mainImage
     }`,
-    { slug }
+    { slug },
+    { next: { revalidate: 0 }, cache: 'no-store' }
   );
 }
